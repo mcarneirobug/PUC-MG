@@ -1,0 +1,46 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x124d730 .scope module, "Exemplo_0504" "Exemplo_0504" 2 7;
+ .timescale 0 0;
+L_0x1291920 .functor NAND 1, v0x1260600_0, v0x1291730_0, C4<1>, C4<1>;
+L_0x1291a30 .functor NAND 1, L_0x1291920, L_0x1291920, C4<1>, C4<1>;
+v0x1260600_0 .var "a", 0 0;
+v0x1291730_0 .var "b", 0 0;
+v0x12917d0_0 .net "s", 0 0, L_0x1291a30; 1 drivers
+v0x1291870_0 .net "w", 0 0, L_0x1291920; 1 drivers
+S_0x124d820 .scope begin, "main" "main" 2 21, 2 21, S_0x124d730;
+ .timescale 0 0;
+    .scope S_0x124d730;
+T_0 ;
+    %fork t_1, S_0x124d820;
+    %jmp t_0;
+    .scope S_0x124d820;
+t_1 ;
+    %vpi_call 2 22 "$display", "Exemplo_504 - Matheus Santos Rosa Carneiro - 613414";
+    %vpi_call 2 23 "$display", "Test module 503";
+    %vpi_call 2 25 "$monitor", "a = %4b b = %4b s = %4b", v0x1260600_0, v0x1291730_0, v0x12917d0_0;
+    %set/v v0x1260600_0, 0, 1;
+    %set/v v0x1291730_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0x1260600_0, 0, 1;
+    %set/v v0x1291730_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x1260600_0, 1, 1;
+    %set/v v0x1291730_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0x1260600_0, 1, 1;
+    %set/v v0x1291730_0, 1, 1;
+    %end;
+    .scope S_0x124d730;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0504.v";
