@@ -1,0 +1,50 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x25de730 .scope module, "Exemplo_0502" "Exemplo_0502" 2 7;
+ .timescale 0 0;
+L_0x2623160 .functor NAND 1, v0x25f1950_0, C4<1>, C4<1>, C4<1>;
+L_0x2623240 .functor NAND 1, v0x2622ed0_0, C4<1>, C4<1>, C4<1>;
+L_0x2623300 .functor NAND 1, L_0x2623160, L_0x2623240, C4<1>, C4<1>;
+L_0x2623430 .functor NAND 1, L_0x2623240, L_0x2623160, C4<1>, C4<1>;
+v0x25f1950_0 .var "a", 0 0;
+v0x2622ed0_0 .var "b", 0 0;
+RS_0x7fa837fff078 .resolv tri, L_0x2623300, L_0x2623430, C4<z>, C4<z>;
+v0x2622f70_0 .net8 "s", 0 0, RS_0x7fa837fff078; 2 drivers
+v0x2623010_0 .net "w", 0 0, L_0x2623160; 1 drivers
+v0x26230c0_0 .net "z", 0 0, L_0x2623240; 1 drivers
+S_0x25de820 .scope begin, "main" "main" 2 25, 2 25, S_0x25de730;
+ .timescale 0 0;
+    .scope S_0x25de730;
+T_0 ;
+    %fork t_1, S_0x25de820;
+    %jmp t_0;
+    .scope S_0x25de820;
+t_1 ;
+    %vpi_call 2 26 "$display", "Exemplo_0502 - Matheus Santos Rosa Carneiro - 613414";
+    %vpi_call 2 27 "$display", "Test module 502";
+    %vpi_call 2 29 "$monitor", "a = %4b b = %4b s = %4b", v0x25f1950_0, v0x2622ed0_0, v0x2622f70_0;
+    %set/v v0x25f1950_0, 0, 1;
+    %set/v v0x2622ed0_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0x25f1950_0, 0, 1;
+    %set/v v0x2622ed0_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x25f1950_0, 1, 1;
+    %set/v v0x2622ed0_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0x25f1950_0, 1, 1;
+    %set/v v0x2622ed0_0, 1, 1;
+    %end;
+    .scope S_0x25de730;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0502.v";
