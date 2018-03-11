@@ -34,4 +34,4 @@ begin : main
 
 end
 
-endmodule // nor_from_or()   
+endmodule // Exemplo_0505()   
