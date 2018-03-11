@@ -1,0 +1,52 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1e00730 .scope module, "Exemplo_0506" "Exemplo_0506" 2 7;
+ .timescale 0 0;
+L_0x1e45bd0 .functor NAND 1, v0x1e13d80_0, v0x1e13d80_0, C4<1>, C4<1>;
+L_0x1e45cd0 .functor NAND 1, v0x1e45860_0, v0x1e45860_0, C4<1>, C4<1>;
+L_0x1e45db0 .functor NAND 1, L_0x1e45bd0, v0x1e45860_0, C4<1>, C4<1>;
+L_0x1e45e60 .functor NAND 1, L_0x1e45cd0, v0x1e13d80_0, C4<1>, C4<1>;
+L_0x1e45f10 .functor NAND 1, L_0x1e45db0, L_0x1e45e60, C4<1>, C4<1>;
+v0x1e13d80_0 .var "a", 0 0;
+v0x1e457c0_0 .net "a_neg", 0 0, L_0x1e45bd0; 1 drivers
+v0x1e45860_0 .var "b", 0 0;
+v0x1e45900_0 .net "b_neg", 0 0, L_0x1e45cd0; 1 drivers
+v0x1e459b0_0 .net "c", 0 0, L_0x1e45db0; 1 drivers
+v0x1e45a50_0 .net "d", 0 0, L_0x1e45e60; 1 drivers
+v0x1e45b30_0 .net "s", 0 0, L_0x1e45f10; 1 drivers
+S_0x1e00820 .scope begin, "main" "main" 2 24, 2 24, S_0x1e00730;
+ .timescale 0 0;
+    .scope S_0x1e00730;
+T_0 ;
+    %fork t_1, S_0x1e00820;
+    %jmp t_0;
+    .scope S_0x1e00820;
+t_1 ;
+    %vpi_call 2 25 "$display", "Exemplo_0506 - Matheus Santos Rosa Carneiro - 613414";
+    %vpi_call 2 26 "$display", "Test module 506";
+    %vpi_call 2 28 "$monitor", "a = %4b b = %4b s = %4b", v0x1e13d80_0, v0x1e45860_0, v0x1e45b30_0;
+    %set/v v0x1e13d80_0, 0, 1;
+    %set/v v0x1e45860_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0x1e13d80_0, 0, 1;
+    %set/v v0x1e45860_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0x1e13d80_0, 1, 1;
+    %set/v v0x1e45860_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0x1e13d80_0, 1, 1;
+    %set/v v0x1e45860_0, 1, 1;
+    %end;
+    .scope S_0x1e00730;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0506.v";
