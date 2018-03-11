@@ -1,0 +1,50 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0xada730 .scope module, "Exemplo_0503" "Exemplo_0503" 2 8;
+ .timescale 0 0;
+L_0xb1f160 .functor NOR 1, v0xaed950_0, C4<0>, C4<0>, C4<0>;
+L_0xb1f240 .functor NOR 1, v0xb1eed0_0, C4<0>, C4<0>, C4<0>;
+L_0xb1f300 .functor NOR 1, L_0xb1f160, L_0xb1f240, C4<0>, C4<0>;
+L_0xb1f430 .functor NOR 1, L_0xb1f240, L_0xb1f160, C4<0>, C4<0>;
+v0xaed950_0 .var "a", 0 0;
+v0xb1eed0_0 .var "b", 0 0;
+RS_0x7f7355b45078 .resolv tri, L_0xb1f300, L_0xb1f430, C4<z>, C4<z>;
+v0xb1ef70_0 .net8 "s", 0 0, RS_0x7f7355b45078; 2 drivers
+v0xb1f010_0 .net "w", 0 0, L_0xb1f160; 1 drivers
+v0xb1f0c0_0 .net "z", 0 0, L_0xb1f240; 1 drivers
+S_0xada820 .scope begin, "main" "main" 2 26, 2 26, S_0xada730;
+ .timescale 0 0;
+    .scope S_0xada730;
+T_0 ;
+    %fork t_1, S_0xada820;
+    %jmp t_0;
+    .scope S_0xada820;
+t_1 ;
+    %vpi_call 2 27 "$display", "Exemplo_0503 - Matheus Santos Rosa Carneiro - 613414";
+    %vpi_call 2 28 "$display", "Test module 503";
+    %vpi_call 2 30 "$monitor", "a = %4b b = %4b s = %4b", v0xaed950_0, v0xb1eed0_0, v0xb1ef70_0;
+    %set/v v0xaed950_0, 0, 1;
+    %set/v v0xb1eed0_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0xaed950_0, 0, 1;
+    %set/v v0xb1eed0_0, 1, 1;
+    %delay 1, 0;
+    %set/v v0xaed950_0, 1, 1;
+    %set/v v0xb1eed0_0, 0, 1;
+    %delay 1, 0;
+    %set/v v0xaed950_0, 1, 1;
+    %set/v v0xb1eed0_0, 1, 1;
+    %end;
+    .scope S_0xada730;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exemplo_0503.v";
