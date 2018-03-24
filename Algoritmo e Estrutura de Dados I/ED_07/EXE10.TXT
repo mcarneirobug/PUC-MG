@@ -1,0 +1,5 @@
+1 Digitos: 1 em posicao: 0
+2 Digitos: 2 em posicao: 1
+3 Digitos: 3 em posicao: 2
+4 Digitos: 4 em posicao: 3
+5 Digitos: 5 em posicao: 4

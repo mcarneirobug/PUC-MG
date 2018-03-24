@@ -1,0 +1,5 @@
+Soma dos inversos: 0.2
+Soma dos inversos: 0.34285714285714286
+Soma dos inversos: 0.45396825396825397
+Soma dos inversos: 0.5448773448773448
+Soma dos inversos: 0.6218004218004218

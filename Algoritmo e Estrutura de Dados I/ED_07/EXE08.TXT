@@ -1,0 +1,10 @@
+Termos: 610
+Quantidade de termos: 1
+Termos: 144
+Quantidade de termos: 2
+Termos: 34
+Quantidade de termos: 3
+Termos: 8
+Quantidade de termos: 4
+Termos: 2
+Quantidade de termos: 5

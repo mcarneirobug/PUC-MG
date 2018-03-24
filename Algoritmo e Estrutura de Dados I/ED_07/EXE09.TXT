@@ -1,0 +1,14 @@
+1 Caracter valido: M em posicao: 0
+
+Caracter invalido em posicao: 1
+
+Caracter invalido em posicao: 2
+
+Caracter invalido em posicao: 3
+
+2 Caracter valido: E em posicao: 4
+
+Caracter invalido em posicao: 5
+
+3 Caracter valido: S em posicao: 6
+

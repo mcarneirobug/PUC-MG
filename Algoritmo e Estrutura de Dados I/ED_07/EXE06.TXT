@@ -1,0 +1,5 @@
+Valor: 4 Soma: 2
+Valor: 6 Soma: 6
+Valor: 8 Soma: 12
+Valor: 10 Soma: 20
+Valor: 12 Soma: 30
