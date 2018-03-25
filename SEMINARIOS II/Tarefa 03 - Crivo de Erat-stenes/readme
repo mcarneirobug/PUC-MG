@@ -1,0 +1,18 @@
+Tarefa 03 – Crivo de Eratóstenes (valor: 5 pontos)
+Implementar um código paralelo OpenMP em C (Linux utilizando o compilador
+GCC) usando também o padrão REDUCE e políticas de escalonamento para
+encontrar a quantidade de números primos entre 2 e n, onde n é um número
+inteiro <= 1000000000, usando o Crivo de Eratóstenes sequencial
+(https://ideone.com/JU5CfV). Um exemplo de entrada e saída abaixo:
+Entrada: 100000000
+Saída: 5761455
+Explicação do
+algoritmo: https://pt.wikipedia.org/wiki/Crivo_de_Erat%C3%B3stenes
+
+Obs: Para compilar o código use a seguinte linha de comando:
+$ gcc sieve.c -o sieve -fopenmp -lm
+Para executar o programa, utilize a seguinte linha de comando:
+$ time ./sieve
+IMPORTANTE: O código .c deve ser submetido e conter um comentário com
+os tempos sequencial e paralelo. Os resultados de tempo devem ser os obtidos
+com execuções no servidor Parcode.
