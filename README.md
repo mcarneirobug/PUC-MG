@@ -1,2 +1,2 @@
 # PUC-MG
-Ciências da Computação 
+Engenharia de Software
