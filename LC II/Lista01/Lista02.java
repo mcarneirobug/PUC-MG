@@ -94,7 +94,7 @@ public class Lista02{
     }//end tarefa02( )
 
    /* private static void task03 ( ){
-    }//end tarefa03( ) */
+    }//end task03( ) */
 
     private static void task04() {
 
@@ -187,7 +187,7 @@ public class Lista02{
         //check what's on top
         System.out.println("\nElement on top: "+ P.peek());
         System.out.println("Sum of elements: " + sum);
-        System.out.println("Arithmetic men of elements: " + mean);
+        System.out.println("Arithmetic mean of elements: " + mean);
     } //end task05()
 
     private static void task06() {
@@ -195,14 +195,14 @@ public class Lista02{
         //define data
         CFila F    = new CFila();
         CFila Faux = new CFila();
-        int aux = 10, aux2 = 1, amount, amount2;
+        int aux = 1, amount, amount2;
         Object data;
         String input;
 
         System.out.println("\nEnter 10 names: ");
 
         //stack F
-        for ( int i = 0; i < aux; i++ ) {
+        for ( int i = 0; i < 10; i++ ) {
             input = in.next();
             F.enfileira(input);
         } //end for
@@ -216,15 +216,16 @@ public class Lista02{
         while ( amount > 0 ) {
 
             data = F.desenfileira();
-            System.out.println(aux2 + " - " + data);
+            System.out.println(aux + " - " + data);
             Faux.enfileira(data);
-            aux2++;
+            aux++;
             amount--;
         } //end while
 
+        //define amount Faux
         amount2 = Faux.quantidade();
 
-        //stack to P again
+        //stack to F again
         while ( amount2 > 0 ) {
 
             data = Faux.desenfileira();
