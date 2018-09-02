@@ -40,6 +40,16 @@ public class CPilha {
       return item;
    }
 
+   // Metodo que apaga todos os elementos de uma Pilha
+   public void limpa() {
+      while(qtde != 0) {
+         if (topo != null) {
+            topo = topo.prox;
+            qtde--;
+         } //end if
+      } //end while
+   } //end limpa()
+
    // Verifica se o item passado como parametro esta contido na lista.
    // O parametro "valorItem"> e' um object contendo o item a ser localizado.
    // Retorna TRUE caso o item esteja presente na lista.

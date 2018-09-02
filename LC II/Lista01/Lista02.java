@@ -300,6 +300,52 @@ public class Lista02{
         System.out.println("Element on top (after): "+ P.peek());
     }  //end task07()
 
+    private static void task08() {
+
+        //define data
+        CPilha P    = new CPilha();
+        CPilha Paux = new CPilha();
+        Object data;
+        int input, amount, amount2;
+
+        System.out.println("Enter 15 values: ");
+
+        //stack P
+        for( int i = 0; i < 15; i++ ) {
+            input = gerador.nextInt(100);
+            P.empilha(input);
+        } //end for
+
+        //define amount P
+        amount = P.quantidade();
+
+        while ( amount > 0 ) {
+            data = P.desempilha();
+            System.out.println("[" + data + "]");
+            Paux.empilha(data);
+            amount--;
+        } //end while
+
+        //define amount Paux
+        amount2 = Paux.quantidade();
+
+        //unpack Paux to P
+        while( amount2 > 0 ) {
+            data = Paux.desempilha();
+            P.empilha(data);
+            amount2--;
+        } //end while
+
+        //check what's on top before
+        System.out.println("\nElement on top: (before) "+ P.peek());
+
+        //clear all items
+        P.limpa();
+
+        //check what's on top after
+        System.out.println("Element on top: (after) "+ P.peek());
+    } //end task08()
+
     public static void main ( String [ ] args ){
 
         System.out.println("\nList 02 - Program in Java ");
@@ -320,6 +366,7 @@ public class Lista02{
             System.out.println("5 - task05");
             System.out.println("6 - task06");
             System.out.println("7 - task07");
+            System.out.println("8 - task08");
 
             System.out.println();
 
@@ -350,6 +397,9 @@ public class Lista02{
                     break;
                 case 7:
                     task07();
+                    break;
+                case 8:
+                    task08();
                     break;
                     default:
                         System.out.println("ERROR: Invalid option! ");
