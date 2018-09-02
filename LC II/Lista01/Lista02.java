@@ -238,10 +238,72 @@ public class Lista02{
 
     } //end task06()
 
+    private static void limpaPilha(CPilha P) {
+
+        //define data
+        int amount;
+        amount = P.quantidade();
+
+        while ( amount > 0 ) {
+
+            P.desempilha();
+            amount--;
+        } //end while()
+    } //end limpaPilha()
+
+    private static void task07() {
+
+        //define data
+        CPilha P    = new CPilha();
+        CPilha Paux = new CPilha();
+        int input, amount, amount2;
+        Object data;
+        System.out.println("Enter 15 values: ");
+
+        //stack P
+        for( int i = 0; i < 15; i++ ) {
+            input = gerador.nextInt(20);
+            P.empilha(input);
+        } //end for
+
+        System.out.println("\nCPilha: ");
+
+        //define amount P
+        amount = P.quantidade();
+
+        //unpack P to Paux
+        while ( amount > 0 ) {
+
+            data = P.desempilha();
+            System.out.println("[" + data + "]");
+            Paux.empilha(data);
+            amount--;
+        } //end while
+
+        //define amount Paux
+        amount2 = Paux.quantidade();
+
+        //stack to P again
+        while ( amount2 > 0 ) {
+            data = Paux.desempilha();
+            P.empilha(data);
+            amount2--;
+        } //end while
+
+        //check what's on top
+        System.out.println("\nElement on top (before): "+ P.peek());
+
+        //clear all items
+        limpaPilha(P);
+
+        //check what's on top
+        System.out.println("Element on top (after): "+ P.peek());
+    }  //end task07()
+
     public static void main ( String [ ] args ){
 
-        System.out.println("\nLista02 - Programa em Java ");
-        System.out.println("Autor: Matheus Santos Rosa Carneiro");
+        System.out.println("\nList 02 - Program in Java ");
+        System.out.println("Author: Matheus Santos Rosa Carneiro");
         System.out.println();
 
         //define data
@@ -257,14 +319,15 @@ public class Lista02{
             System.out.println("4 - task04");
             System.out.println("5 - task05");
             System.out.println("6 - task06");
+            System.out.println("7 - task07");
 
             System.out.println();
 
-            //leitura da opcao do teclado
+            //read keyboard
             System.out.println("Choose an option: ");
             option = in.nextInt();
 
-            //escolha da opcao
+            //choose an option
             switch (option) {
                 case 0:
                     break;
@@ -284,6 +347,9 @@ public class Lista02{
                     break;
                 case 6:
                     task06();
+                    break;
+                case 7:
+                    task07();
                     break;
                     default:
                         System.out.println("ERROR: Invalid option! ");
