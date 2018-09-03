@@ -56,7 +56,6 @@ public class CFila {
 
       if( frente != tras ) {
          frente.prox = new CCelula(item, frente.prox);
-         //item = frente.prox;
          qtde++;
       }
    } //end furaFila()
