@@ -50,6 +50,17 @@ public class CFila {
       return item;
    }
 
+   //Metodo que insere o item no inicio da Fila
+
+   public void furaFila(Object item) {
+
+      if( frente != tras ) {
+         frente.prox = new CCelula(item, frente.prox);
+         //item = frente.prox;
+         qtde++;
+      }
+   } //end furaFila()
+
    // Metodo que apaga todos os elementos de uma Fila
    public void limpa() {
 
@@ -60,6 +71,8 @@ public class CFila {
          } //end if
       } //end while
    } //end limpa()
+
+
 
    // Retorna o primeiro Item da fila sem remove-lo.
    // Retorna um Object contendo o primeiro Item da fila.

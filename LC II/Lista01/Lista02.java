@@ -396,6 +396,45 @@ public class Lista02{
 
     private static void task10() {
 
+        //define data
+        CFila F    = new CFila();
+        CFila Faux = new CFila();
+        int input, amount, amount2, aux = 10;
+        Object data;
+
+        System.out.println("Enter 10 values: ");
+
+        for(int i = 0; i < aux; i++) {
+            input = in.nextInt();
+            F.enfileira(input);
+        } //end for
+
+        //method call
+        F.furaFila(5);
+
+        System.out.println("\nCFila: ");
+        //define amount F
+        amount = F.quantidade();
+
+        //show data
+        while( amount > 0 ) {
+            data = F.desenfileira();
+            System.out.println(""+ data);
+            Faux.enfileira(data);
+            amount--;
+        } //end while
+
+        //define amount Faux
+        amount2 = Faux.quantidade();
+
+        while( amount2 > 0 ) {
+            data = Faux.desenfileira();
+            F.enfileira(data);
+            amount2--;
+        } //end while
+
+        //check what's on first
+        System.out.println("\nFirst in queue: "+ F.peek());
     } //end task10()
 
     public static void main ( String [ ] args ){
