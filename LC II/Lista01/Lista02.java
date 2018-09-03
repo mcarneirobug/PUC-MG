@@ -346,6 +346,58 @@ public class Lista02{
         System.out.println("Element on top: (after) "+ P.peek());
     } //end task08()
 
+    private static void task09() {
+
+        //define data
+        CFila F    = new CFila();
+        CFila Faux = new CFila();
+        int amount, amount2;
+        String input;
+        Object data;
+
+        System.out.println("\nEnter 10 names: ");
+        //stack F
+        for(int i = 0; i < 10; i++) {
+            input = in.next();
+            F.enfileira(input);
+        } //end for
+
+        //define amount F
+        amount = F.quantidade();
+
+        while ( amount > 0 ) {
+
+            data = F.desenfileira();
+            System.out.println("[" + data + "]");
+            Faux.enfileira(data);
+            amount--;
+        } //end while
+
+        //define amount Faux
+        amount2 = Faux.quantidade();
+
+        //unpack Faux to F
+        while( amount2 > 0 ) {
+
+            data = Faux.desenfileira();
+            F.enfileira(data);
+            amount2--;
+        } //end while
+
+        //check what's on top before
+        System.out.println("\nFirst in queue: (before) " + F.peek());
+
+        //clear all items
+        F.limpa();
+
+        //check what's on top after
+        System.out.println("First in queue: (after) " + F.peek());
+    } //end task09()
+
+    private static void task10() {
+
+    } //end task10()
+
     public static void main ( String [ ] args ){
 
         System.out.println("\nList 02 - Program in Java ");
@@ -358,15 +410,17 @@ public class Lista02{
         do {
             //show option
             System.out.println("\nOptions: ");
-            System.out.println("0 - break");
-            System.out.println("1 - task01");
-            System.out.println("2 - task02");
-            System.out.println("3 - task03");
-            System.out.println("4 - task04");
-            System.out.println("5 - task05");
-            System.out.println("6 - task06");
-            System.out.println("7 - task07");
-            System.out.println("8 - task08");
+            System.out.println("00 - break");
+            System.out.println("01 - task01");
+            System.out.println("02 - task02");
+            System.out.println("03 - task03");
+            System.out.println("04 - task04");
+            System.out.println("05 - task05");
+            System.out.println("06 - task06");
+            System.out.println("07 - task07");
+            System.out.println("08 - task08");
+            System.out.println("09 - task09");
+            System.out.println("10 - task10");
 
             System.out.println();
 
@@ -400,6 +454,12 @@ public class Lista02{
                     break;
                 case 8:
                     task08();
+                    break;
+                case 9:
+                    task09();
+                    break;
+                case 10:
+                    task10();
                     break;
                     default:
                         System.out.println("ERROR: Invalid option! ");
