@@ -85,7 +85,6 @@ public class Lista02{
             data = Paux.desempilha();
             P.empilha(data);
             System.out.println("["+ data + "]");
-
             amount2--;
         } //end while()
 
@@ -93,8 +92,46 @@ public class Lista02{
         System.out.println("Element on top: "+ P.peek());
     }//end tarefa02( )
 
-   /* private static void task03 ( ){
-    }//end task03( ) */
+    private static void task03 ( ){
+
+        //define data
+        CPilha P    = new CPilha();
+        CFila  F = new CFila();
+        Object data;
+        int input, amount, amount2;
+
+        System.out.println("Enter 10 values: ");
+
+        //stack P
+        for(int i = 0; i < 10; i++) {
+            input = in.nextInt();
+            P.empilha(input);
+        } //end for
+
+        //define amount P
+        amount = P.quantidade();
+
+        //stack to F
+        while( amount > 0 ) {
+            data = P.desempilha();
+            F.enfileira(data);
+            System.out.println("[" + data + "]");
+            amount--;
+        } //end while
+
+        //define amount F
+        amount2 = F.quantidade();
+
+        //unpack F to P
+        while( amount2 > 0 ) {
+            data = F.desenfileira();
+            P.empilha(data);
+            amount2--;
+        } //end while
+
+        //check what's on top
+        System.out.println("Element on top: " + P.peek());
+    }//end task03( )
 
     private static void task04() {
 
@@ -238,14 +275,13 @@ public class Lista02{
 
     } //end task06()
 
-    private static void limpaPilha(CPilha P) {
+    private static void limpaPilha (CPilha P) {
 
         //define data
         int amount;
         amount = P.quantidade();
 
         while ( amount > 0 ) {
-
             P.desempilha();
             amount--;
         } //end while()
@@ -437,6 +473,17 @@ public class Lista02{
         System.out.println("\nFirst in queue: "+ F.peek());
     } //end task10()
 
+    private static void furaFila (CFila F, Object item) {
+
+
+
+
+    } //end furaFila()
+
+    private static void task11() {
+
+    } //end task11()
+
     public static void main ( String [ ] args ){
 
         System.out.println("\nList 02 - Program in Java ");
@@ -460,6 +507,7 @@ public class Lista02{
             System.out.println("08 - task08");
             System.out.println("09 - task09");
             System.out.println("10 - task10");
+            System.out.println("11 - task11");
 
             System.out.println();
 
@@ -478,6 +526,7 @@ public class Lista02{
                     task02();
                     break;
                 case 3:
+                    task03();
                     break;
                 case 4:
                     task04();
@@ -499,6 +548,9 @@ public class Lista02{
                     break;
                 case 10:
                     task10();
+                    break;
+                case 11:
+                    task11();
                     break;
                     default:
                         System.out.println("ERROR: Invalid option! ");
