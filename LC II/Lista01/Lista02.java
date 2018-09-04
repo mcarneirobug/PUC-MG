@@ -1,16 +1,20 @@
 // dependence
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
+import java.io.BufferedReader;
 
 public class Lista02{
 
-    private static Scanner in = new Scanner (System.in);
-    private static Random gerador = new Random();
-
-    private static void task01 ( ){
+    private static Scanner in        = new Scanner (System.in);
+    private static Random gerador    = new Random();
+    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    
+    private static void task01 ( ) throws IOException {
 
         //define data
-        int value, amount, amount2;
-        Object data;
+        int amount, amount2;
+        Object data, in;
         CPilha P    = new CPilha( );
         CPilha Paux = new CPilha( );
 
@@ -18,8 +22,8 @@ public class Lista02{
 
         //stack values
         for ( int i = 0; i < 10; i++ ){
-            value = in.nextInt( );
-            P.empilha(value);
+            in = br.readLine();
+            P.empilha(in);
         }//end for
 
         //define amount P
@@ -47,7 +51,7 @@ public class Lista02{
 
         //check what's on top
         System.out.println("\nElement on top: "+ P.peek());
-    }//end tarefa01( )
+    }//end task01( )
 
     private static void task02( ){
 
@@ -90,7 +94,7 @@ public class Lista02{
 
         //check what's on top
         System.out.println("Element on top: "+ P.peek());
-    }//end tarefa02( )
+    }//end task02( )
 
     private static void task03 ( ){
 
@@ -475,16 +479,67 @@ public class Lista02{
 
     private static void furaFila (CFila F, Object item) {
 
-
-
-
+        int amount = F.quantidade();
+        while( amount > 0 ) {
+            CCelula aux = new CCelula();
+            aux.prox = new CCelula(item, aux.prox);
+            F.enfileira(item);
+            amount--;
+        }
     } //end furaFila()
+
+    private static void furaQueue ( CFila F, Object item ) {
+        F.furaFila(item);
+    } //end furaQueue()
+
 
     private static void task11() {
 
+        //define data
+        CFila F    = new CFila();
+        CFila Faux = new CFila();
+        Object data;
+        int input, input2, amount, amount2;
+
+        System.out.println("Enter 10 values: ");
+
+        for(int i = 0; i < 10; i++) {
+            input = in.nextInt();
+            F.enfileira(input);
+        } //end for
+
+
+        System.out.println("Enter 1 value: ");
+        input2 = in.nextInt();
+
+        //call method
+        furaQueue(F, input2);
+
+        //define amount F
+        amount = F.quantidade();
+
+        while( amount > 0 ) {
+            data = F.desenfileira();
+            System.out.println("" + data);
+            Faux.enfileira(data);
+            amount--;
+        } //end while
+
+        //define amount Faux
+        amount2 = Faux.quantidade();
+
+        //stack to F again
+        while( amount2 > 0 ) {
+            data = Faux.desenfileira();
+            F.enfileira(data);
+            amount2--;
+        } //end while
+
+        //check what's element on first
+        System.out.println("First in queue: " + F.peek());
     } //end task11()
 
-    public static void main ( String [ ] args ){
+    public static void main ( String [ ] args ) throws IOException {
 
         System.out.println("\nList 02 - Program in Java ");
         System.out.println("Author: Matheus Santos Rosa Carneiro");
