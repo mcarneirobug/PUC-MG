@@ -4,33 +4,106 @@ public class Lista03 {
     private static Random gerador = new Random();
     private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     
+    
+            private static CFila ConcatenaFila(CFila F1, CFila F2) {
+
+                //define data
+                CFila F1maisF2 = new CFila();
+                int amount, amount2;
+                Object data, aux;
+
+                /*
+                while(amount > 0){
+                    data = F1.desenfileira();
+                    aux  = F2.desenfileira();
+                    F1masF2.enfileira(data);
+                    F1masF2.enfileira(aux);
+                    amount--;
+                }
+                */
+
+                //define amount F1
+                amount  = F1.quantidade();
+                while (amount > 0){
+                    data = F1.desenfileira();
+                    F1maisF2.enfileira(data);
+                    amount--;
+                } //end while
+
+                //define amount F2
+                amount2 = F2.quantidade();
+                while (amount2 > 0){
+                    aux = F2.desenfileira();
+                    F1maisF2.enfileira(aux);
+                    amount2--;
+                } //end while
+
+                //mostrar a fila concatenada
+                F1maisF2.mostra();
+
+                return (F1maisF2);
+        } //end ConcatenaFila()
+
+        private static void task05() throws IOException {
+
+            //define data
+            CFila f         = new CFila();
+            CFila faux      = new CFila();
+            Object in, in2;
+
+            /*for(int i = 0; i < 5; i++) {
+                System.out.println("Entre para in: ");
+                in  = br.readLine();
+                System.out.println("Entre para in2: ");
+                in2 = br.readLine();
+                f.enfileira(in);
+                faux.enfileira(in2);
+            } //end for
+            */
+
+            System.out.println("Entre com 5 valores para f: ");
+            for (int i = 0; i < 5; i++) {
+                in = br.readLine();
+                f.enfileira(in);
+            } //end for
+
+            System.out.println("Entre com 5 valores para faux: ");
+            for (int i = 0; i < 5; i++) {
+                in2 = br.readLine();
+                faux.enfileira(in2);
+            } //end for
+
+            //chamada do metodo concatena
+            ConcatenaFila(f, faux);
+        } //end task05()
+    
         private static void invertePilha(CPilha P) {
 
-        //define data
-        CFila F = new CFila();
-        int amount, amount2;
-        Object data;
+            //define data
+            CFila F = new CFila();
+            int amount, amount2;
+            Object data;
 
-        //define amount P
-        amount = P.quantidade();
+            //define amount P
+            amount = P.quantidade();
 
-        //unpack P to F
-        while(amount > 0) {
-            data = P.desempilha();
-            System.out.println("[" + data + "]");
-            F.enfileira(data);
-            amount--;
-        }//end while
+            //unpack P to F
+            while(amount > 0) {
+                data = P.desempilha();
+                System.out.println("[" + data + "]");
+                F.enfileira(data);
+                amount--;
+            }//end while
 
-        //define amount F
-        amount2 = F.quantidade();
+            //define amount F
+            amount2 = F.quantidade();
 
-        //unpack F to P again
-        while(amount2 > 0) {
-            data = F.desenfileira();
-            P.empilha(data);
-            amount2--;
-        } //end while
+            //unpack F to P again
+            while(amount2 > 0) {
+                data = F.desenfileira();
+                P.empilha(data);
+                amount2--;
+            } //end while
     } //end invertePilha(OK)
 
     private static void task18() throws IOException {
